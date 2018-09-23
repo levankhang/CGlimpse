@@ -1,15 +1,10 @@
 package com.cglimpse.levankhang.cglimpse;
 
 import android.content.Intent;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
 import android.view.MenuItem;
-import android.view.Window;
-import android.widget.Toast;
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -73,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startAccountActivity(){
-        Intent accountIntent = new Intent(MainActivity.this, AccountActivity.class);
+        Intent accountIntent = new Intent(MainActivity.this, SetupActivity.class);
         startActivity(accountIntent);
 //        finish();
     }

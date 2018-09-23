@@ -6,13 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorButtonNormal">@color/colorWhite</item>
+
     </style>
     
     <style name="InputStyle" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:textColorPrimary">@color/colorWhite</item>
         <item name="colorAccent">@color/colorWhite</item>
         <item name="colorControlNormal">@color/colorWhite</item>
+
     </style>
 
     <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">

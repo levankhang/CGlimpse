@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressBar progressBarRegister;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         addEvent();
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
     }
 
     private void connectView(){
@@ -87,17 +92,35 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Đăng kí thành công",
                                     Toast.LENGTH_SHORT).show();
 
-                            startAccountActivity();
+                            String uid = mAuth.getCurrentUser().getUid();
+                            Map<String, String> userMap = new HashMap<>();
+                            userMap.put("name", null);
+                            userMap.put("image", null);
+
+                            db.collection("users").document(uid).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if(task.isSuccessful()){
+                                        startSetupActivity();
+                                    }else{
+                                        Toast.makeText(RegisterActivity.this, "Failed: setup store for user failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                    progressBarRegister.setVisibility(View.INVISIBLE);
+
+                                }
+                            });
+
 
 
                         }else{
                             String messageError = task.getException().getMessage();
                             Toast.makeText(RegisterActivity.this, "Register failed: " + messageError,
                                     Toast.LENGTH_SHORT).show();
-
+                            progressBarRegister.setVisibility(View.INVISIBLE);
                         }
 
-                        progressBarRegister.setVisibility(View.INVISIBLE);
+
                     }
                 });
             }else{
@@ -108,9 +131,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void startAccountActivity(){
-        Intent accountIntent = new Intent(RegisterActivity.this, AccountActivity.class);
-        startActivity(accountIntent);
+    private void startSetupActivity(){
+        Intent setupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
+        startActivity(setupIntent);
     }
 
 }

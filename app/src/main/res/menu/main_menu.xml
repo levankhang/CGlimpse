@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/action_account"
-        android:title="Tài khoản của tôi"
+        android:title="Cài đặt"
         app:showAsAction="never"
         />
 
