@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1019910446187",
+    "firebase_url": "https://cglimpse-firebase.firebaseio.com",
+    "project_id": "cglimpse-firebase",
+    "storage_bucket": "cglimpse-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019910446187:android:c9f43abeeb44c904",
+        "android_client_info": {
+          "package_name": "com.cglimpse.levankhang.cglimpse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019910446187-a2dgcl6rdq5lj8gq77u4a6aanvnu3fhb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cglimpse.levankhang.cglimpse",
+            "certificate_hash": "0f09d4be3cb0e0736a8b0cdcec89e9ed1673ff32"
+          }
+        },
+        {
+          "client_id": "1019910446187-q8uckjjrgjns3i989niku4811nbpb6a8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMjS7sgl9VjvjpLdgKEcanQX2sh2--Lts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019910446187-q8uckjjrgjns3i989niku4811nbpb6a8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
